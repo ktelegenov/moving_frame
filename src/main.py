@@ -82,6 +82,7 @@ def main():
     rospy.Subscriber('mavros/state', State, cnt.stateCb)
     rospy.Subscriber('mavros/local_position/pose', PoseStamped, cnt.posCb)
     # rospy.Subscriber('vrpn_client_node/frame', cnt.framePosCb)
+    # another line of commented code
 
     sp_pub = rospy.Publisher('mavros/setpoint_raw/local', PositionTarget, queue_size = 1)
 
