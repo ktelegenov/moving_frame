@@ -70,7 +70,7 @@ class Controller:
     ## Drone State callback
     def stateCb(self, msg):
         self.state = msg
-
+    
 
 # Main function
 def main():
@@ -81,6 +81,7 @@ def main():
 
     rospy.Subscriber('mavros/state', State, cnt.stateCb)
     rospy.Subscriber('mavros/local_position/pose', PoseStamped, cnt.posCb)
+    # rospy.Subscriber('vrpn_client_node/frame', cnt.framePosCb)
 
     sp_pub = rospy.Publisher('mavros/setpoint_raw/local', PositionTarget, queue_size = 1)
 
