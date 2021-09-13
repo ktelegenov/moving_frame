@@ -3,7 +3,8 @@
 
 	<arg name="fcu_url" default="/dev/ttyUSB0:921600" />
 	<arg name="gcs_url" default="udp://@192.168.0.105:14550" />
-	<arg name="rbname" default="f33" />
+	<!-- <arg name="dronename" default="drone" /> -->
+	<!-- <arg name="framename" default="frame />" -->
 	<arg name="tgt_system" default="1" />
 	<arg name="tgt_component" default="1" />
 	<arg name="log_output" default="screen" />
@@ -26,14 +27,15 @@
 
 
 
-	<node pkg="topic_tools" type="relay" name="mocap_topic_relay" args="/vrpn_client_node/$(arg rbname)/pose /mavros/vision_pose/pose" />
-	<node pkg="rosbag" type="record" name="rosbag_record_velocity"
-		args="record -o /home/odroid/newexp.bag /mavros/local_position/velocity_body" />
+	<!-- <node pkg="topic_tools" type="relay" name="mocap_topic_relay" args="/vrpn_client_node/$(arg rbname)/pose /mavros/vision_pose/pose" /> -->
+
+	<!-- <node pkg="rosbag" type="record" name="rosbag_record_velocity"
+		args="record -o /home/odroid/newexp.bag /mavros/local_position/velocity_body" /> -->
 
 
 
 
-	<node pkg="velocity" type="mission.py" name="mission_node" required="true" output="screen" />
+	<node pkg="moving_frame" type="main.py" name="moving_frame" required="true" output="screen" />
 
 </launch>
 

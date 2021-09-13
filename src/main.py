@@ -75,7 +75,7 @@ class Controller:
 # Main function
 def main():
 
-    rospy.init_node('mission_node', anonymous = True)
+    rospy.init_node('moving_frame', anonymous = True)
     cnt  = Controller()
     rate = rospy.Rate(20.0)
 
@@ -199,4 +199,3 @@ if __name__ == '__main__':
         main()
     except rospy.ROSInterruptException:
         pass
-
